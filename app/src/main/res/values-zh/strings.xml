@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">AndroidLabs</string>
-    <string name="hello_message">你好！加拿大</string>
-    <string name="ButtonText">I\'m a button</string>
+    <string name="app_name">我是安卓</string>
+    <string name="hello_message">你好！世界</string>
+    <string name="ButtonText">我是个按钮</string>
+    <string name="LoginText">登陆</string>
+    <string name="PwdText">密码</string>
+    <string name="SwitchText">这个是干嘛的？</string>
+    <string name="hintText">登陆名字</string>
 </resources>
