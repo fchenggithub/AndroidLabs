@@ -19,7 +19,7 @@ public class StartActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(StartActivity.this, ListItemsActivity.class);
-                startActivityForResult(intent, 5);
+                startActivityForResult(intent, 50);
             }
         });
         Log.i(ACTIVITY_NAME, "In onCreate()");
@@ -27,11 +27,8 @@ public class StartActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int responseCode, Intent data) {
-        if(requestCode == 5) {
+        if(requestCode == 50 && responseCode == RESULT_OK) {
             Log.i(ACTIVITY_NAME, "Returned to StartActivity.onActivityResult");
-        }
-
-        if(responseCode == Activity.RESULT_OK) {
             String messagePassed = data.getStringExtra("Response");
             Toast.makeText(getApplicationContext(), "ListItemsActivity passed: "+messagePassed, Toast.LENGTH_LONG).show();
         }

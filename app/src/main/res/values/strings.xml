@@ -7,7 +7,7 @@
     <string name="SwitchText">What does this do?</string>
     <string name="hintText">login name</string>
     <string name="LoginButton">Log In</string>
-    <string name="finishActivityMessage">Are you sure you want to finish this activity?</string>
+    <string name="finishActivityMessage">Do you want to finish the activity?</string>
     <string name="finishActivityTitle">Finish Activity</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>

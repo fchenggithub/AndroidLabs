@@ -9,46 +9,37 @@ import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class LoginActivity extends Activity {
-    protected static final String ACTIVITY_NAME = "LoginActivity";
-    private Button buttonLogin;
-    private TextView textViewEmail;
-    private String emailStored  = "email@domain.com";
-    public static final String SETTINGS = "com.example.feng.lab3.settings";
-    public static final String STORED_EMAIL = "storedEmail";
+protected static final String ACTIVITY_NAME = "LoginActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        buttonLogin = (Button)findViewById(R.id.buttonLogin);
-        buttonLogin.setOnClickListener(new View.OnClickListener(){
-           @Override
-            public void onClick(View v){
-                savedLogin();
+        android.util.Log.i(ACTIVITY_NAME, "In onCreate()");
+        final Button button_login = (Button)findViewById(R.id.buttonLogin);
+        final EditText editText = (EditText)findViewById(R.id.email);
+        final SharedPreferences prefs = getSharedPreferences("User_Info", Context.MODE_PRIVATE);
+
+        editText.setText(prefs.getString("email",""));
+
+
+        button_login.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.putString("email",editText.getText().toString());
+                editor.commit();
                 Intent intent = new Intent(LoginActivity.this,StartActivity.class);
+                // Intent intent = new Intent(StartActivity.this,ListItemsActivity.class);
                 startActivity(intent);
+                // Code here executes on main thread after user presses button
             }
         });
-        textViewEmail = (TextView)findViewById(R.id.textViewEmail);
-        loadSavedLogin();
-        Log.i(ACTIVITY_NAME, "In onCreate()");
     }
-    private void loadSavedLogin(){
-        SharedPreferences preferences = getSharedPreferences(SETTINGS, MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        emailStored = preferences.getString(STORED_EMAIL, emailStored);
-        editor.commit();
-        textViewEmail.setText(emailStored);
-    }
-    private void savedLogin(){
-        SharedPreferences preferences = getSharedPreferences(SETTINGS, Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        emailStored = textViewEmail.getText().toString();
-        editor.putString(STORED_EMAIL, emailStored);
-        editor.commit();
-    }
+
 
     protected void onResume(){
         super.onResume();

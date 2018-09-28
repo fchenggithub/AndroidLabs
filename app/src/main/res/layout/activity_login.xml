@@ -8,35 +8,39 @@
     tools:context=".LoginActivity">
 
     <TextView
+        android:id="@+id/textViewEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/LoginText"
-        android:id="@+id/textViewEmail"/>
+        android:text="@string/LoginText" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/hintText"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:id="@+id/email"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/PwdText"/>
+        android:text="@string/PwdText" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/buttonLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/LoginButton" />
+
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/flag"/>
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/LoginButton"
-        android:id="@+id/buttonLogin"
-        tools:layout_editor_absoluteX="147dp"
-        tools:layout_editor_absoluteY="285dp"/>
+        android:src="@drawable/flag" />
+
 
 </LinearLayout>
 
