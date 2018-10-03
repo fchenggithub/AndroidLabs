@@ -8,4 +8,6 @@
     <string name="PwdText">密码</string>
     <string name="SwitchText">这个是干嘛的？</string>
     <string name="hintText">登陆名字</string>
+    <string name="startChat">开始聊天</string>
+    <string name="sendChat">发送</string>
 </resources>

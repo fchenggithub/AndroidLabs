@@ -11,4 +11,8 @@
     <string name="finishActivityTitle">Finish Activity</string>
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
+    <string name="startChat">Start Chat</string>
+    <string name="sendChat">Send</string>
+    <string name="chatHint">new text</string>
+
 </resources>

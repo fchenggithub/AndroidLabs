@@ -22,6 +22,16 @@ public class StartActivity extends Activity {
                 startActivityForResult(intent, 50);
             }
         });
+        Button chatButton = (Button)findViewById(R.id.start_Chat);
+        chatButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(StartActivity.this, ChatWindow.class);
+                startActivity(intent);
+                Log.i(ACTIVITY_NAME, "User clicked Start Chat");
+            }
+        });
+
         Log.i(ACTIVITY_NAME, "In onCreate()");
     }
 
@@ -33,6 +43,8 @@ public class StartActivity extends Activity {
             Toast.makeText(getApplicationContext(), "ListItemsActivity passed: "+messagePassed, Toast.LENGTH_LONG).show();
         }
     }
+
+
 
     public void onResume(){
         super.onResume();
