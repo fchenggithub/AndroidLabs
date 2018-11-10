@@ -14,5 +14,9 @@
     <string name="startChat">Start Chat</string>
     <string name="sendChat">Send</string>
     <string name="chatHint">new text</string>
+    <string name="radioButton">RadioButton</string>
+    <string name="checkBox">CheckBox</string>
+    <string name="buttonWeather">Weather</string>
+    <string name="weatherCurrentTemp">Current: </string>
 
 </resources>
