@@ -11,12 +11,22 @@ import android.widget.Toast;
 public class StartActivity extends Activity {
     protected static final String ACTIVITY_NAME = "StartActivity";
     private Button buttonWeather;
+    private Button toolbarBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
-        Button buttonStart = (Button)findViewById(R.id.buttonStart);
-        buttonWeather = (Button)findViewById(R.id.buttonWeather);
+        Button buttonStart = (Button) findViewById(R.id.buttonStart);
+        buttonWeather = (Button) findViewById(R.id.buttonWeather);
+        toolbarBtn = (Button)findViewById(R.id.toolbarBtn);
+        toolbarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(StartActivity.this, TestToolBar.class);
+                startActivity(intent);
+            }
+        });
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,7 +34,7 @@ public class StartActivity extends Activity {
                 startActivityForResult(intent, 50);
             }
         });
-        Button chatButton = (Button)findViewById(R.id.start_Chat);
+        Button chatButton = (Button) findViewById(R.id.start_Chat);
         chatButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,32 +57,35 @@ public class StartActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int responseCode, Intent data) {
-        if(requestCode == 50 && responseCode == RESULT_OK) {
+        if (requestCode == 50 && responseCode == RESULT_OK) {
             Log.i(ACTIVITY_NAME, "Returned to StartActivity.onActivityResult");
             String messagePassed = data.getStringExtra("Response");
-            Toast.makeText(getApplicationContext(), "ListItemsActivity passed: "+messagePassed, Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "ListItemsActivity passed: " + messagePassed, Toast.LENGTH_LONG).show();
         }
     }
 
 
-
-    public void onResume(){
+    public void onResume() {
         super.onResume();
         Log.i(ACTIVITY_NAME, "In onResume()");
     }
-    public void onStart(){
+
+    public void onStart() {
         super.onStart();
         Log.i(ACTIVITY_NAME, "In onStart()");
     }
-    public void onPause(){
+
+    public void onPause() {
         super.onPause();
         Log.i(ACTIVITY_NAME, "In onPause()");
     }
-    public void onStop(){
+
+    public void onStop() {
         super.onStop();
         Log.i(ACTIVITY_NAME, "In onStop()");
     }
-    public void onDestroy(){
+
+    public void onDestroy() {
         super.onDestroy();
         Log.i(ACTIVITY_NAME, "In onDestroy()");
     }

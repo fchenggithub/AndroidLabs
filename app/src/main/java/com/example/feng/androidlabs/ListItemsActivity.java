@@ -18,6 +18,7 @@ import android.widget.Toast;
 public class ListItemsActivity extends Activity {
     protected static final String ACTIVITY_NAME = "ListItemsActivity";
     private ImageButton imageButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,20 +31,20 @@ public class ListItemsActivity extends Activity {
             }
         });
 
-         Switch switchSlider = (Switch) findViewById(R.id.switch1);
-        switchSlider.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                CharSequence text = "Switch is Off";
-                int duration = Toast.LENGTH_LONG;
-                if(switchSlider.isChecked()) {
-                    text = "Switch is On";
-                    duration = Toast.LENGTH_SHORT;
-                }
-                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
-                toast.show();
-            }
-        });
+//        Switch switchSlider = (Switch) findViewById(R.id.switch1);
+//        switchSlider.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+//                CharSequence text = "Switch is Off";
+//                int duration = Toast.LENGTH_LONG;
+//                if (switchSlider.isChecked()) {
+//                    text = "Switch is On";
+//                    duration = Toast.LENGTH_SHORT;
+//                }
+//                Toast toast = Toast.makeText(getApplicationContext(), text, duration);
+//                toast.show();
+//            }
+//        });
 
         CheckBox checkbox = (CheckBox) findViewById(R.id.checkBox);
         checkbox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -80,8 +81,8 @@ public class ListItemsActivity extends Activity {
 
     private void launchPhotoApp() {
         Intent takePhotoIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        if(takePhotoIntent.resolveActivity(getPackageManager())!=null) {
-            startActivityForResult(takePhotoIntent,REQUEST_IMAGE_CAPTURE);
+        if (takePhotoIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePhotoIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 
@@ -93,23 +94,28 @@ public class ListItemsActivity extends Activity {
             imageButton.setImageBitmap(imageBitmap);
         }
     }
-    public void onResume(){
+
+    public void onResume() {
         super.onResume();
         Log.i(ACTIVITY_NAME, "In onResume()");
     }
-    public void onStart(){
+
+    public void onStart() {
         super.onStart();
         Log.i(ACTIVITY_NAME, "In onStart()");
     }
-    public void onPause(){
+
+    public void onPause() {
         super.onPause();
         Log.i(ACTIVITY_NAME, "In onPause()");
     }
-    public void onStop(){
+
+    public void onStop() {
         super.onStop();
         Log.i(ACTIVITY_NAME, "In onStop()");
     }
-    public void onDestroy(){
+
+    public void onDestroy() {
         super.onDestroy();
         Log.i(ACTIVITY_NAME, "In onDestroy()");
     }
